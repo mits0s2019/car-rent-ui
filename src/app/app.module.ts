@@ -11,7 +11,9 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { UsersComponent } from './users/users.component';
+// import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,15 @@ import { UsersComponent } from './users/users.component';
     LoginComponent,
     HomeComponent,
     CarComponent,
-    UsersComponent
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    // FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent],

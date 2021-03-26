@@ -1,19 +1,52 @@
-<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-  
-    <label>
-      Username:
-      <input type="text" formControlName="username">
-    </label>
-  
-    <label>
-      Email:
-      <input type="text" formControlName="email">
-    </label>
-  
-    <label>
-       Password:
-    <input type="password" formControlName="password">
-    </label>
 
-    <button type="submit" [disabled]="!registrationForm.valid" mat-raised-button color="primary">Register</button>
+  <form class="example-form" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+
+        <mat-label>Username</mat-label>
+        <input type="text" matInput formControlName="username" [errorStateMatcher]=""
+               placeholder="username">
+
+        <!-- errors -->
+        <mat-error *ngIf="registrationForm.hasError('username') && !registrationForm.hasError('required')">
+          Please enter a valid username
+        </mat-error>
+        <mat-error *ngIf="registrationForm.hasError('required')">
+          Username is <strong>required</strong>
+        </mat-error>
+
+      </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+
+      <mat-label>Email</mat-label>
+      <input type="text" matInput formControlName="email" [errorStateMatcher]=""
+      placeholder="Ex. I need help with...">
+
+      <!-- errors -->
+      <mat-error *ngIf="registrationForm.hasError('email') && !registrationForm.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="registrationForm.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+
+        <mat-label>Password</mat-label>
+        <input type="text" matInput formControlName="password" [errorStateMatcher]=""
+        placeholder="Ex. I need help with...">
+  
+        <!-- errors -->
+        <mat-error *ngIf="registrationForm.hasError('password') && !registrationForm.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="registrationForm.hasError('required')">
+            Password is <strong>required</strong>
+        </mat-error>
+  
+      </mat-form-field>
+    <button type="submit"  mat-raised-button color="primary">Register</button>
+
   </form>
