@@ -1,10 +1,14 @@
+<div class="registrationForm">
+  <h2>Register</h2>
 
-  <form class="example-form" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <form class="example-form" [formGroup]="registrationForm" #form="ngForm" (ngSubmit)="onSubmit()">
+
+    <!-- Username -->
     <mat-form-field class="example-full-width">
 
         <mat-label>Username</mat-label>
-        <input type="text" matInput formControlName="username" [errorStateMatcher]=""
-               placeholder="username">
+        <input type="text" matInput formControlName="username"
+               placeholder="Your username">
 
         <!-- errors -->
         <mat-error *ngIf="registrationForm.hasError('username') && !registrationForm.hasError('required')">
@@ -16,11 +20,12 @@
 
       </mat-form-field>
 
+    <!-- Email -->
     <mat-form-field class="example-full-width">
 
       <mat-label>Email</mat-label>
-      <input type="text" matInput formControlName="email" [errorStateMatcher]=""
-      placeholder="Ex. I need help with...">
+      <input type="text" matInput formControlName="email"
+      placeholder="Ex. email@email.com">
 
       <!-- errors -->
       <mat-error *ngIf="registrationForm.hasError('email') && !registrationForm.hasError('required')">
@@ -32,10 +37,11 @@
 
     </mat-form-field>
 
+    <!-- Password -->
     <mat-form-field class="example-full-width">
 
         <mat-label>Password</mat-label>
-        <input type="text" matInput formControlName="password" [errorStateMatcher]=""
+        <input type="text" matInput formControlName="password"
         placeholder="Ex. I need help with...">
   
         <!-- errors -->
@@ -50,3 +56,4 @@
     <button type="submit"  mat-raised-button color="primary">Register</button>
 
   </form>
+  </div>

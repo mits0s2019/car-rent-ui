@@ -13,7 +13,7 @@ import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { UsersComponent } from './users/users.component';
-// import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { UsersComponent } from './users/users.component';
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
-    // FlexLayoutModule
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent],
