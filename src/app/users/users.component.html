@@ -1,0 +1,11 @@
+
+<div *ngIf="users.length; else elseBlock">
+    <div *ngFor="let user of users" >
+        {{user?.username}}
+        {{user?.email}}
+    </div>
+</div>
+
+<ng-template #elseBlock>
+    No Users
+</ng-template>
