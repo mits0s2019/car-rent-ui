@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   constructor(private carService: CarService) { }
 
   ngOnInit(): void {
+    console.log("HomeComponent initialized")
     this.cars = this.carService.getCars();
   }
 
