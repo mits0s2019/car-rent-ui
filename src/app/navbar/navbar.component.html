@@ -1,10 +1,11 @@
-<mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <button mat-button routerLink="/">Home </button>
-      
-      <span class="spacer"></span>
-      <button mat-button routerLink="/register">Register</button>
-      <button mat-button routerLink="/login">Login</button>
-      <button mat-button routerLink="/users">Users</button>
-    </mat-toolbar-row>
-  </mat-toolbar>
+<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="start center">
+  <a mat-button routerLink="/">Best Cars</a>
+
+  <span fxFlex></span>
+  <a mat-button routerLink="/register">Register</a>
+  <a mat-button routerLink="/login">Login</a>
+  <a mat-button routerLink="/users">Users</a>
+  <a mat-button routerLink="/my-cars"
+    ><span class="material-icons"> add_shopping_cart </span> My Collection</a
+  >
+</mat-toolbar>

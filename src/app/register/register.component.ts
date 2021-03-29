@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
 
   registerData: Registration;
 
-  @ViewChild('form') myNgForm: NgForm;
+  // @ViewChild('form') myNgForm: NgForm;
 
   registrationForm = this.formBuilder.group({
     username: ['', Validators.required],
@@ -30,8 +30,8 @@ export class RegisterComponent implements OnInit {
     if(this.registrationForm.valid){
 
       this.userService.insertUser(this.registrationForm.value)
-      this.myNgForm?.resetForm();
-      this.registrationForm?.reset();
+      // this.myNgForm?.resetForm();
+      this.registrationForm.reset();
     }
   }
 }

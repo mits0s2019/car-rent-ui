@@ -10,7 +10,9 @@ import { UserService } from '../services/user.service';
 export class UsersComponent implements OnInit {
 
   users: User[];
-  
+  columnsToDisplay = ['num','username', 'email'];
+
+
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {

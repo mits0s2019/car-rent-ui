@@ -1,10 +1,19 @@
-<div >
-    <img [src]="car?.url" alt="" width="300px">
-    <div>
-        Brand : {{car?.name}}
-    </div>
-    <div>Price : {{car?.price}}
+<div fxLayout="column" fxLayoutAlign="center center">
+  <img [src]="car?.url" alt="" width="300px" height="170px" />
+  <div>Brand : {{ car?.name }}</div>
+  <div>Price : {{ car?.price }}</div>
 
-    </div>
-    <button mat-raised-button color="accent">Buy</button>
+  <button
+    *ngIf="!inCart; else elseBlock"
+    mat-raised-button
+    color="primary"
+    (click)="insertCart(car?.id)"
+  >
+    Add to Cart
+  </button>
+  <ng-template #elseBlock
+    ><button mat-raised-button color="accent" (click)="removeCart(car?.id)">
+      <span class="material-icons"> delete </span>Remove From Cart
+    </button>
+  </ng-template>
 </div>
