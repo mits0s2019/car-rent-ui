@@ -11,7 +11,6 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UsersComponent } from './users/users.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CarCollectionComponent } from './car-collection/car-collection.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -24,7 +23,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     LoginComponent,
     HomeComponent,
     CarComponent,
-    UsersComponent,
     CarCollectionComponent,
     PageNotFoundComponent,
   ],

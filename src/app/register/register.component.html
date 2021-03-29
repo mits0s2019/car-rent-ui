@@ -1,59 +1,83 @@
 <div class="registrationForm" fxLayout="row wrap" fxLayoutAlign="center center">
   <h2 fxLayoutAlign="center center" fxFlex="100">Register</h2>
 
-  <form fxFlex="100" class="example-form" [formGroup]="registrationForm"  (ngSubmit)="onSubmit()">
-
+  <form
+    fxFlex="100"
+    class="example-form"
+    [formGroup]="registrationForm"
+    (ngSubmit)="onSubmit()"
+  >
     <!-- Username -->
     <mat-form-field class="example-full-width">
+      <mat-label>Username</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="username"
+        placeholder="Your username"
+      />
 
-        <mat-label>Username</mat-label>
-        <input type="text" matInput formControlName="username"
-               placeholder="Your username">
-
-        <!-- errors -->
-        <mat-error *ngIf="registrationForm.hasError('username') && !registrationForm.hasError('required')">
-          Please enter a valid username
-        </mat-error>
-        <mat-error *ngIf="registrationForm.hasError('required')">T
-          Username is <strong>required</strong>
-        </mat-error>
-
-      </mat-form-field>
+      <!-- errors -->
+      <mat-error
+        *ngIf="
+          registrationForm.hasError('username') &&
+          !registrationForm.hasError('required')
+        "
+      >
+        Please enter a valid username
+      </mat-error>
+      <mat-error *ngIf="registrationForm.hasError('required')"
+        >T Username is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
 
     <!-- Email -->
     <mat-form-field class="example-full-width">
-
       <mat-label>Email</mat-label>
-      <input type="text" matInput formControlName="email"
-      placeholder="Ex. email@email.com">
+      <input
+        type="text"
+        matInput
+        formControlName="email"
+        placeholder="Ex. email@email.com"
+      />
 
       <!-- errors -->
-      <mat-error *ngIf="registrationForm.hasError('email') && !registrationForm.hasError('required')">
+      <mat-error
+        *ngIf="
+          registrationForm.hasError('email') &&
+          !registrationForm.hasError('required')
+        "
+      >
         Please enter a valid email address
       </mat-error>
       <mat-error *ngIf="registrationForm.hasError('required')">
         Email is <strong>required</strong>
       </mat-error>
-
     </mat-form-field>
 
     <!-- Password -->
     <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        matInput
+        formControlName="password"
+        placeholder="Ex. I need help with..."
+      />
 
-        <mat-label>Password</mat-label>
-        <input type="text" matInput formControlName="password"
-        placeholder="Ex. I need help with...">
-  
-        <!-- errors -->
-        <mat-error *ngIf="registrationForm.hasError('password') && !registrationForm.hasError('required')">
-          Please enter a valid email address
-        </mat-error>
-        <mat-error *ngIf="registrationForm.hasError('required')">
-            Password is <strong>required</strong>
-        </mat-error>
-  
-      </mat-form-field>
-    <button type="submit"  mat-raised-button color="primary">Register</button>
-
+      <!-- errors -->
+      <mat-error
+        *ngIf="
+          registrationForm.hasError('password') &&
+          !registrationForm.hasError('required')
+        "
+      >
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="registrationForm.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary">Register</button>
   </form>
-  </div>
+</div>
