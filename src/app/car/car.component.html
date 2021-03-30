@@ -1,8 +1,7 @@
-<div  fxLayout="row" fxFlex.sm="100" fxFlex.md="45" fxFlex.lg="30" fxFlex.xl="30">
 <div fxLayout="column" fxLayoutAlign="center center">
   <img [src]="car?.url" alt="" width="300px" height="170px" />
   <div>Brand : {{ car?.name }}</div>
-  <div>Price : {{ car?.price }}</div>
+  <div>Price : {{ car?.price | number: '1.0-0' }} &euro;</div>
 
   <button
     *ngIf="!inCart; else elseBlock"
@@ -17,5 +16,4 @@
       <span class="material-icons"> delete </span>Remove From Cart
     </button>
   </ng-template>
-</div>
 </div>
