@@ -15,6 +15,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { CarCollectionComponent } from './car-collection/car-collection.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddCarComponent } from './add-car/add-car.component';
+import { AddButtonComponent } from './shared/add-button/add-button.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     CarComponent,
     CarCollectionComponent,
     PageNotFoundComponent,
+    AddCarComponent,
+    AddButtonComponent,
   ],
   imports: [
     BrowserModule,

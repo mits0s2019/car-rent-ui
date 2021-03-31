@@ -18,7 +18,6 @@ export class CarCollectionComponent implements OnInit {
       this.cars.includes(car)
         ? (this.cars = this.cars.filter((c) => c.id !== car.id))
         : (this.cars = [car, ...this.cars]);
-      console.log(this.cars);
     });
   }
 }

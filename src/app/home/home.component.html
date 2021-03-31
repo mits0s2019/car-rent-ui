@@ -1,3 +1,5 @@
+<app-add-button  (onClick)="addCar($event)"></app-add-button>
+
 <div fxLayout="column">
   <div fxLayout="row wrap" fxLayoutAlign="center stretch">
     <ng-container *ngFor="let car of cars">
@@ -5,10 +7,6 @@
     </ng-container>
   </div>
   <div fxLayout="row">
-    <app-car-collection
-    
-      fxFlex="50"
-      fxFlexOffset="25"
-    ></app-car-collection>
+    <app-car-collection fxFlex="50" fxFlexOffset="25"></app-car-collection>
   </div>
 </div>

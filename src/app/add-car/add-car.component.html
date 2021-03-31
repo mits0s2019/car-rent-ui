@@ -1,0 +1,42 @@
+<div fxFlex="66" fxFlexOffset="15">
+  <div
+    class="registrationForm"
+    fxLayout="row wrap"
+    fxLayoutAlign="center center"
+  >
+    <h2 fxLayoutAlign="center center" fxFlex="100">Register new car</h2>
+
+    <form class="example-form" [formGroup]="addCarForm" (ngSubmit)="onSubmit()">
+      <!-- Username -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Url</mat-label>
+        <input type="text" matInput formControlName="url" placeholder="url" />
+      </mat-form-field>
+
+      <!-- Email -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Brand</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="name"
+          placeholder="brand"
+        />
+      </mat-form-field>
+
+      <!-- Password -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Price</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="price"
+          placeholder="price"
+        />
+      </mat-form-field>
+      <div fxLayoutAlign="center center">
+        <button type="submit" mat-raised-button color="primary">Create</button>
+      </div>
+    </form>
+  </div>
+</div>

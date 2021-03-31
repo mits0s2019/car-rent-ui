@@ -5,6 +5,7 @@ import {
   QueryList,
   ViewChildren,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { CarComponent } from '../car/car.component';
 import { Car } from '../interfaces/car';
 import { CarService } from '../services/car.service';
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   @ViewChildren(CarComponent) carElements: QueryList<CarComponent>;
 
-  constructor(private carService: CarService) {
+  constructor(private carService: CarService,private router: Router) {
     console.log("HomeComponent constructor initialized");
 
   }
@@ -41,5 +42,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
         }, 1000);
       });
     });
+  }
+  
+  addCar(event) {
+    this.router.navigate(['add-car']);
   }
 }
