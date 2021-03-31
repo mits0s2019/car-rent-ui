@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, NgForm, Validators } from '@angular/forms';
-import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Registration } from '../interfaces/registration';
 import { UserService } from '../services/user.service';
 
@@ -10,20 +10,22 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
+  registrationForm: FormGroup;
   registerData: Registration;
-
-  registrationForm = this.formBuilder.group({
-    username: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required],
-  });
 
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {}
+    private router: Router
+  ) {
+    console.log('constructor initialized');
+
+    this.registrationForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+    });
+  }
 
   ngOnInit(): void {
     console.log('RegisterComponent initialized');
@@ -31,9 +33,10 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     if (this.registrationForm.valid) {
-      this.userService.insertUser(this.registrationForm.value);
+      this.registerData = this.registrationForm.value;
+      this.userService.insertUser(this.registerData);
       this.registrationForm.reset();
-      this.router.navigate([''], { relativeTo: this.activatedRoute });
+      this.router.navigate(['']);
     }
   }
 }

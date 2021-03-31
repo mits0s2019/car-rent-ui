@@ -3,7 +3,6 @@ import {
   Component,
   OnInit,
   QueryList,
-  ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { CarComponent } from '../car/car.component';
@@ -20,7 +19,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   @ViewChildren(CarComponent) carElements: QueryList<CarComponent>;
 
-  constructor(private carService: CarService) {}
+  constructor(private carService: CarService) {
+    console.log("HomeComponent constructor initialized");
+
+  }
 
   ngOnInit(): void {
     console.log('HomeComponent initialized');
@@ -28,6 +30,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    console.log("ngAfterViewInit initialized");
     this.carElements.changes.subscribe(() => {
       // If clients is set from an async call ( getCars() ) then the elements don't exist in ngAfterViewInit() yet.
       this.carElements.toArray().forEach((carElement) => {

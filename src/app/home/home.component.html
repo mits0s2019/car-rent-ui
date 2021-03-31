@@ -6,5 +6,8 @@
   fxFlex.lg="80"
   fxFlex.xl="80"
 >
-  <app-car *ngFor="let car of cars" [car]="car"> </app-car>
+<ng-container *ngFor="let car of cars">
+  <app-car [car]="car"> </app-car>
+
+</ng-container>
 </div>
