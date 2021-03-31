@@ -1,5 +1,7 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, Input, OnInit } from '@angular/core';
 import { Car } from '../interfaces/car';
+import { CarCollectionService } from '../services/car-collection.service';
 
 @Component({
   selector: 'app-car',
@@ -11,28 +13,15 @@ export class CarComponent implements OnInit {
 
   inCart: boolean = false;
 
-  constructor() {
-    // this.activatedRoute.params.subscribe((params) => {
-    //   console.log(params);
-    // });
-    // this.activatedRoute.queryParams.subscribe(params=>{
-    //   console.log(params)
-    // })
-  }
+  constructor(private carCollection: CarCollectionService) {}
 
   ngOnInit(): void {
     console.log('hello from Car Component');
   }
 
-  insertCart(carId: number) {
-    console.log(carId);
-    // call a service
-    this.inCart = true;
-  }
+  editCollection() {
+    this.inCart = !this.inCart;
 
-  removeCart(carId: number) {
-    console.log(carId);
-    // call a service
-    this.inCart = false;
+    this.carCollection.updateCar(this.car);
   }
 }

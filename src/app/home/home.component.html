@@ -1,13 +1,14 @@
-<div
-  fxLayout="row wrap"
-  fxLayoutAlign="center stretch"
-  fxFlex.sm="100"
-  fxFlex.md="100"
-  fxFlex.lg="80"
-  fxFlex.xl="80"
->
-<ng-container *ngFor="let car of cars">
-  <app-car [car]="car"> </app-car>
-
-</ng-container>
+<div fxLayout="column">
+  <div fxLayout="row wrap" fxLayoutAlign="center stretch">
+    <ng-container *ngFor="let car of cars">
+      <app-car [car]="car"> </app-car>
+    </ng-container>
+  </div>
+  <div fxLayout="row">
+    <app-car-collection
+    
+      fxFlex="50"
+      fxFlexOffset="25"
+    ></app-car-collection>
+  </div>
 </div>

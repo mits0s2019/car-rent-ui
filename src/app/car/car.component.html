@@ -14,13 +14,13 @@
       *ngIf="!inCart; else elseBlock"
       mat-raised-button
       color="primary"
-      (click)="insertCart(car?.id)"
+      (click)="editCollection()"
     >
       Add to Cart
     </button>
 
     <ng-template #elseBlock
-      ><button mat-raised-button color="accent" (click)="removeCart(car?.id)">
+      ><button mat-raised-button color="accent" (click)="editCollection()">
         <span class="material-icons"> delete </span>Remove From Cart
       </button>
     </ng-template>

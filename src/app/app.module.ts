@@ -14,7 +14,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CarCollectionComponent } from './car-collection/car-collection.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { SuccessComponent } from './register/success/success.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -27,7 +26,6 @@ import { HttpClientModule } from '@angular/common/http';
     CarComponent,
     CarCollectionComponent,
     PageNotFoundComponent,
-    SuccessComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,11 +34,10 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports:[]
+  exports: [],
 })
-export class AppModule { }
-     
+export class AppModule {}
