@@ -7,7 +7,9 @@ import { Car } from '../interfaces/car';
 })
 export class CarCollectionService {
   private car = new ReplaySubject<Car>();
+  private topics = new Map<string, ReplaySubject<any>>();
 
+  
   observer = this.car.asObservable();
 
   constructor() {}
