@@ -1,19 +1,16 @@
-<app-add-button (onClick)="addCar($event)"></app-add-button>
+<div fxLayout="column">
 
+  <app-add-button (onClick)="addCar($event)"></app-add-button>
 
-  <div fxLayout="column" fxLayoutAlign="center center" >
+  <div fxLayout="row wrap">
 
-
-    <div fxLayout="row stretch" fxLayoutAlign="center stretch">
-      <ng-container *ngFor="let car of cars">
-        <app-car [car]="car"> </app-car>
-      </ng-container>
-    </div>
-
-
-    <div fxLayout="row">
-      <app-car-collection fxFlex="50" fxFlexOffset="25"></app-car-collection>
-    </div>
-
+    <app-car *ngFor="let car of cars" [car]="car" fxFlex.lg="30" fxFlex.xl="30"> </app-car>
 
   </div>
+
+  <div fxLayout="row">
+    <app-car-collection fxFlex="50" fxFlexOffset="25"></app-car-collection>
+  </div>
+
+
+</div>

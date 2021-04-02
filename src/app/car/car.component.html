@@ -1,28 +1,17 @@
-<div
- fxFlex.lg="30"
- fxFlex.md="30"
->
-  <div fxLayout="column" fxLayoutAlign="center center">
-    <ng-template [ngIf]="car?.url">
-      <img [src]="car?.url" alt="" width="300px" height="170px" />
-    </ng-template>
+<div fxLayout="column" fxFill fxLayoutAlign="center center">
+  <ng-template [ngIf]="car?.url">
+    <img [src]="car?.url" alt="" width="300px" height="170px" />
+  </ng-template>
 
-    <div>Brand : {{ car?.brand }}</div>
-    <div>Price : {{ car?.price | number: "1.0-0" }} &euro;</div>
+  <div>Brand : {{ car?.brand }}</div>
+  <div>Price : {{ car?.price | number: "1.0-0" }} &euro;</div>
 
-    <button
-      *ngIf="!inCart; else elseBlock"
-      mat-raised-button
-      color="primary"
-      (click)="editCollection()"
-    >
-      Add to Cart
+  <button *ngIf="!inCart; else elseBlock" mat-raised-button color="primary" (click)="editCollection()">
+    Add to Cart
+  </button>
+
+  <ng-template #elseBlock><button mat-raised-button color="accent" (click)="editCollection()">
+      <span class="material-icons"> delete </span>Remove From Cart
     </button>
-
-    <ng-template #elseBlock
-      ><button mat-raised-button color="accent" (click)="editCollection()">
-        <span class="material-icons"> delete </span>Remove From Cart
-      </button>
-    </ng-template>
-  </div>
+  </ng-template>
 </div>
