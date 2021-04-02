@@ -1,6 +1,6 @@
 export interface Car {
   id?: number;
   url?: string;
-  name?: string;
+  brand?: string;
   price?: number;
 }

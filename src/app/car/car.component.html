@@ -1,13 +1,13 @@
 <div
-  fxLayout="row"
-  fxFlex.sm="100"
-  fxFlex.md="100"
-  fxFlex.lg="80"
-  fxFlex.xl="80"
+ fxFlex.lg="30"
+ fxFlex.md="30"
 >
   <div fxLayout="column" fxLayoutAlign="center center">
-    <img [src]="car?.url" alt="" width="300px" height="170px" />
-    <div>Brand : {{ car?.name }}</div>
+    <ng-template [ngIf]="car?.url">
+      <img [src]="car?.url" alt="" width="300px" height="170px" />
+    </ng-template>
+
+    <div>Brand : {{ car?.brand }}</div>
     <div>Price : {{ car?.price | number: "1.0-0" }} &euro;</div>
 
     <button

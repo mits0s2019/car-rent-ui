@@ -1,15 +1,22 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Car } from '../interfaces/car';
+import { ApiServiceService } from './api-service.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CarService {
-  constructor(private http: HttpClient) {}
+  constructor(private api:ApiServiceService) { }
 
-  getCars(): Observable<Car[]> {
-    return this.http.get<Car[]>('/assets/data/cars.json');
+  getCars() {
+    console.log("get cars")
+   
+    return this.api.car.getCars();
+  }
+
+  saveCar(car: Car) {
+    console.log("save car")
+    
+    return this.api.car.saveCar(car);
   }
 }

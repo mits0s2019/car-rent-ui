@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import {
   AfterViewInit,
   Component,
@@ -20,14 +21,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   @ViewChildren(CarComponent) carElements: QueryList<CarComponent>;
 
-  constructor(private carService: CarService,private router: Router) {
+  constructor(private carService: CarService,private router: Router, private http: HttpClient) {
     console.log("HomeComponent constructor initialized");
 
   }
 
   ngOnInit(): void {
     console.log('HomeComponent initialized');
-    this.carService.getCars().subscribe((data) => (this.cars = data));
+    // this.carService.getCars();
+    this.http.get<Car[]>("/assets/data/cars.json")
+    .subscribe(data=> this.cars = data)
   }
 
   ngAfterViewInit() {
