@@ -28,7 +28,10 @@ export class AddCarComponent implements OnInit {
   onSubmit() {
     if (this.addCarForm.valid) {
       this.car = this.addCarForm.value;
-      // save car
+
+      this.apiService.car.saveCar(this.car)
+        .subscribe(data => console.log("car saved"),
+          error => console.log(error));
 
       this.addCarForm.reset();
       this.router.navigate(['']);

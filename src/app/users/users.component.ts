@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { error } from 'selenium-webdriver';
 import { User } from '../interfaces/user';
-import { UserService } from '../services/user.service';
+import { ApiServiceService } from '../services/api-service.service';
 
 @Component({
   selector: 'app-users',
@@ -9,15 +10,17 @@ import { UserService } from '../services/user.service';
 })
 export class UsersComponent implements OnInit {
 
-  users: User[];
-  columnsToDisplay = ['num','username', 'email'];
+  users: User[]=[];
+  columnsToDisplay = ['num', 'username', 'firstName', 'lastName', 'email'];
 
 
-  constructor(private userService: UserService) { }
+  constructor(private apiService: ApiServiceService) { }
 
   ngOnInit(): void {
     console.log("UsersComponent initialized")
-    this.users = this.userService.getUsers();
+    this.apiService.user.getUsers()
+      .subscribe(data => this.users = data,
+        err => console.log(err));
   }
 
 }
