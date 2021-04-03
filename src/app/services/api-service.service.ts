@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Car } from '../interfaces/car';
 
 @Injectable({
@@ -12,15 +12,12 @@ export class ApiServiceService {
   private CARS_URL = "cars"
   private USERS_URL = "users"
 
-  private carsArray: Car[] = [];
-
   constructor(private http: HttpClient) { }
 
   public car = {
 
-    getCars: () => {
-      // this.http.get(`${this.BASE_URL}/${this.CARS_URL}`)
-      this.http.get("/assets/data/cars.json")
+    getCars: () : Observable<Car[]> => {
+      return this.http.get<Car[]>(`${this.BASE_URL}/${this.CARS_URL}`);
     },
     saveCar: (car: Car) => {
 

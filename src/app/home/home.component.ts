@@ -9,7 +9,7 @@ import {
 import { Router } from '@angular/router';
 import { CarComponent } from '../car/car.component';
 import { Car } from '../interfaces/car';
-import { CarService } from '../services/car.service';
+import { ApiServiceService } from '../services/api-service.service';
 
 @Component({
   selector: 'app-home',
@@ -21,16 +21,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   @ViewChildren(CarComponent) carElements: QueryList<CarComponent>;
 
-  constructor(private carService: CarService,private router: Router, private http: HttpClient) {
+  constructor(private apiService: ApiServiceService,private router: Router, private http: HttpClient) {
     console.log("HomeComponent constructor initialized");
 
   }
 
   ngOnInit(): void {
-    console.log('HomeComponent initialized');
-    // this.carService.getCars();
+
     this.http.get<Car[]>("/assets/data/cars.json")
     .subscribe(data=> this.cars = data)
+    
   }
 
   ngAfterViewInit() {

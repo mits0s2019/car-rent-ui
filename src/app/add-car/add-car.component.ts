@@ -2,8 +2,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Car } from '../interfaces/car';
 import { Router } from '@angular/router';
-import { CarService } from '../services/car.service';
-import { coerceStringArray } from '@angular/cdk/coercion';
+import { ApiServiceService } from '../services/api-service.service';
 
 @Component({
   selector: 'app-add-car',
@@ -14,7 +13,7 @@ export class AddCarComponent implements OnInit {
   addCarForm: FormGroup;
   car: Car;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private carService: CarService) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiServiceService) {
     console.log('constructor initialized');
 
     this.addCarForm = this.formBuilder.group({
@@ -29,7 +28,7 @@ export class AddCarComponent implements OnInit {
   onSubmit() {
     if (this.addCarForm.valid) {
       this.car = this.addCarForm.value;
-      this.carService.saveCar(this.car);
+      // save car
 
       this.addCarForm.reset();
       this.router.navigate(['']);

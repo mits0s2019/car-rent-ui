@@ -4,11 +4,11 @@
 
   <div fxLayout="row wrap">
 
-    <app-car *ngFor="let car of cars" [car]="car" fxFlex.lg="30" fxFlex.xl="30"> </app-car>
+    <app-car *ngFor="let car of cars" [car]="car" fxFlex.lg="30" fxFlex.xl="30" fxFlex.md="30" [style.padding.px]="10"> </app-car>
 
   </div>
 
-  <div fxLayout="row">
+  <div fxLayout="row" >
     <app-car-collection fxFlex="50" fxFlexOffset="25"></app-car-collection>
   </div>
 
