@@ -10,14 +10,13 @@ import { ApiServiceService } from '../services/api-service.service';
 })
 export class UsersComponent implements OnInit {
 
-  users: User[]=[];
+  users: User[];
   columnsToDisplay = ['num', 'username', 'firstName', 'lastName', 'email'];
 
 
   constructor(private apiService: ApiServiceService) { }
 
   ngOnInit(): void {
-    console.log("UsersComponent initialized")
     this.apiService.user.getUsers()
       .subscribe(data => this.users = data,
         err => console.log(err));

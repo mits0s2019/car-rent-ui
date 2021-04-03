@@ -5,13 +5,14 @@ import { Car } from '../interfaces/car';
 import { catchError } from 'rxjs/operators';
 import { Registration } from '../interfaces/registration';
 import { User } from '../interfaces/user';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiServiceService {
 
-  private BASE_URL = "http://localhost:8082/api";
+  private BASE_URL = environment.BASE_URL;
   private CARS_URL = "cars"
   private USERS_URL = "users"
 
