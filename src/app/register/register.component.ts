@@ -1,8 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Registration } from '../interfaces/registration';
-import { ApiServiceService } from '../services/api-service.service';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {Registration} from '../interfaces/registration';
+import {ApiServiceService} from '../services/api-service.service';
+import {catchError} from 'rxjs/operators';
+import {throwError} from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -33,16 +35,17 @@ export class RegisterComponent implements OnInit {
     console.log('RegisterComponent initialized');
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.registrationForm.valid) {
       this.registerData = this.registrationForm.value;
-      // this.userService.insertUser(this.registerData);;
-      this.apiService.user.saveUser(this.registerData)
-        .subscribe(data => console.log("user saved"),
-          error => console.log(error));
 
-      this.registrationForm.reset();
-      this.router.navigate(['']);
+      this.apiService.user.register(this.registerData)
+        .subscribe(data => {
+            this.router.navigate(['']);
+          },
+          error => {
+              console.log(error);
+          });
     }
   }
 }

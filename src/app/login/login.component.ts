@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { User } from '../interfaces/user';
-import { ApiServiceService } from '../services/api-service.service';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {User} from '../interfaces/user';
+import {ApiServiceService} from '../services/api-service.service';
 
 @Component({
   selector: 'app-login',
@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
   user: User;
 
   constructor(private formBuilder: FormBuilder,
-    private apiService: ApiServiceService,
-    private router: Router) {
+              private apiService: ApiServiceService,
+              private router: Router) {
 
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -27,20 +27,21 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.loginForm.valid) {
       this.user = this.loginForm.value;
 
-      // this.userService.insertUser(this.registerData);;
       this.apiService.user.logIn(this.user)
-        .subscribe(user => {
-          this.user = user;
-          console.log(user)
-        }),
-        error => console.log(error);
-
-      this.loginForm.reset();
-      this.router.navigate(['']);
+        .subscribe(data => {
+            this.router.navigate(['']);
+          },
+          error => {
+            if (error.status === 403) {
+              // set errors
+            } else {
+              console.log(error);
+            }
+          });
     }
   }
 }
