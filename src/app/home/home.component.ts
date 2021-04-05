@@ -31,6 +31,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.http.get<Car[]>("/assets/data/cars.json")
     .subscribe(data=> this.cars = data)
     
+    // this.apiService.car.getCars()
+    // .subscribe()
   }
 
   ngAfterViewInit() {

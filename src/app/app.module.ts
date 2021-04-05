@@ -15,6 +15,8 @@ import { CarCollectionComponent } from './car-collection/car-collection.componen
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddButtonComponent } from './shared/add-button/add-button.component';
+import { NgSecurityModule } from '@intersalonica/ng-security';
+import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -35,9 +37,18 @@ import { AddButtonComponent } from './shared/add-button/add-button.component';
     ReactiveFormsModule,
     FlexLayoutModule,
     HttpClientModule,
+    HttpClientModule,
+    NgSecurityModule.forRoot({
+      storageType: 'localStorage',
+      jwtTokenName: 'MY-JWT-TOKEN',
+      userDetailsName: 'USER_DETAILS_NAME'
+    }),
+    JwtModule
   ],
-  providers: [],
+  providers: [{ provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService
+  ],
   bootstrap: [AppComponent],
   exports: [],
 })
-export class AppModule {}
+export class AppModule { }
