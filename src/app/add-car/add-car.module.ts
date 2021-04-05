@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { RegisterRoutingModule } from './register-routing.module';
-import { RegisterComponent } from './register.component';
+import { AddCarRoutingModule } from './add-car-routing.module';
+import { AddCarComponent } from './add-car.component';
 import { MaterialModule } from '../material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [RegisterComponent],
+  declarations: [AddCarComponent],
   imports: [
     CommonModule,
-    RegisterRoutingModule,
+    AddCarRoutingModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
-export class RegisterModule { }
+export class AddCarModule { }

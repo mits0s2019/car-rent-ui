@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AddCarComponent } from './add-car/add-car.component';
 
@@ -18,7 +17,8 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    component: RegisterComponent,
+    loadChildren: () =>
+      import('./register/register.module').then((m) => m.RegisterModule),
   },
   {
     path: 'login',
@@ -31,7 +31,8 @@ const routes: Routes = [
   },
   {
     path: 'add-car',
-    component: AddCarComponent,
+    loadChildren: () =>
+      import('./add-car/add-car.module').then((m) => m.AddCarModule),
   },
   { path: '**', component: PageNotFoundComponent },
 ];
