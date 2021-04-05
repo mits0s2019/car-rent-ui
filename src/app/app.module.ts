@@ -40,7 +40,7 @@ import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
     HttpClientModule,
     NgSecurityModule.forRoot({
       storageType: 'localStorage',
-      jwtTokenName: 'MY-JWT-TOKEN',
+      jwtTokenName: 'CAR-SHOP-TOKEN',
       userDetailsName: 'USER_DETAILS_NAME'
     }),
     JwtModule

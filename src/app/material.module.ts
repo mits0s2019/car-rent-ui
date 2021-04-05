@@ -14,7 +14,7 @@ const MATERIAL_MODULES = [
   MatIconModule,
   MatListModule,
   MatTableModule,
-  MatCardModule
+  MatCardModule,
 ]
 
 @NgModule({

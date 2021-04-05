@@ -12,32 +12,37 @@ import { environment } from 'src/environments/environment';
 })
 export class ApiServiceService {
 
-  private BASE_URL = environment.BASE_URL;
+  private API = "/api";
   private CARS_URL = "cars"
   private USERS_URL = "users"
+  private LOGIN_URL = "login"
 
   constructor(private http: HttpClient) { }
 
   car = {
 
     getCars: (): Observable<Car[]> => {
-      return this.http.get<Car[]>(`${this.BASE_URL}/${this.CARS_URL}`)
+      return this.http.get<Car[]>(`${this.API}/${this.CARS_URL}`)
         .pipe(catchError(this.handleError));
     },
     saveCar: (car: Car): Observable<void> => {
-      return this.http.post<void>(`${this.BASE_URL}/${this.CARS_URL}`, car)
+      return this.http.post<void>(`${this.API}/${this.CARS_URL}`, car)
         .pipe(catchError(this.handleError));
     }
   }
 
   user = {
 
+    logIn: (user: User): Observable<User> => {
+      return this.http.post<User>(`${this.API}/${this.LOGIN_URL}`, user)
+        .pipe(catchError(this.handleError));
+    },
     saveUser: (user: Registration): Observable<void> => {
-      return this.http.post<void>(`${this.BASE_URL}/${this.USERS_URL}`, user)
+      return this.http.post<void>(`${this.API}/${this.USERS_URL}`, user)
         .pipe(catchError(this.handleError));
     },
     getUsers: (): Observable<User[]> => {
-      return this.http.get<User[]>(`${this.BASE_URL}/${this.USERS_URL}`)
+      return this.http.get<User[]>(`${this.API}/${this.USERS_URL}`)
         .pipe(catchError(this.handleError));
     },
   }
