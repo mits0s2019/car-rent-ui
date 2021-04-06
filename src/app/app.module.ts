@@ -18,6 +18,8 @@ import {AddButtonComponent} from './shared/add-button/add-button.component';
 import {NgSecurityModule} from '@intersalonica/ng-security';
 import {JwtHelperService, JwtModule, JWT_OPTIONS} from '@auth0/angular-jwt';
 import {NgValidatorModule} from '@intersalonica/ng-validator';
+import {NgDynamicTableModule} from '@intersalonica/ng-dynamic-table';
+
 
 @NgModule({
   declarations: [
@@ -38,14 +40,14 @@ import {NgValidatorModule} from '@intersalonica/ng-validator';
     ReactiveFormsModule,
     FlexLayoutModule,
     HttpClientModule,
-    HttpClientModule,
     NgSecurityModule.forRoot({
       storageType: 'localStorage',
       jwtTokenName: 'CAR-SHOP-TOKEN',
       userDetailsName: 'USER_DETAILS_NAME'
     }),
     JwtModule,
-    NgValidatorModule.forRoot({url: 'http://localhost:8082/api/validation/field'}),
+    NgValidatorModule.forRoot({url: '/api/validation/field'}),
+    NgDynamicTableModule.forRoot({path: 'assets/columnDefinitionFolder'}),
   ],
   providers: [
     {

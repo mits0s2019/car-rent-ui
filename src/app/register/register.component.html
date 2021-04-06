@@ -1,45 +1,90 @@
 <router-outlet></router-outlet>
-<div class="registrationForm" fxLayout="row wrap" fxLayoutAlign="center center">
+<div  fxLayout="row wrap" fxLayoutAlign="center center">
   <h2 fxLayoutAlign="center center" fxFlex="100">Register</h2>
 
 
-  <form fxFlex="50" fxLayout="column" fxLayoutAlign="space-around center" class="example-form" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-    <!-- Username -->
+  <form fxFlex="50" fxLayout="column" fxLayoutAlign="center center" class="example-form"
+        [formGroup]="registrationForm" (ngSubmit)="onSubmit()" autocomplete="off">
 
-    <mat-form-field>
-      <mat-label>Username</mat-label>
-      <input matInput ngValidator fieldName="$.username" formName="user_registration">
-    </mat-form-field>
+    <ng-input [formGroup]="registrationForm"
+              [matPrefixIcon]="'person'"
+              [controlName]="'username'"
+              [placeholder]="'Type your username'"
+              [matLabel]="'Username'"
+              appearance="outline"
+              ngValidator
+              fieldName="$.username"
+              formName="user_registration">
+    </ng-input>
 
-    <mat-form-field>
-      <mat-label>Email</mat-label>
-      <input matInput ngValidator fieldName="$.email" formName="user_registration">
-    </mat-form-field>
+    <ng-input [formGroup]="registrationForm"
+              [matPrefixIcon]="'person'"
+              [controlName]="'firstName'"
+              [placeholder]="'Type your firstname'"
+              [matLabel]="'First name'"
+              appearance="outline"
+              ngValidator
+              fieldName="$.firstName"
+              formName="user_registration">
+    </ng-input>
 
-    <mat-form-field>
-      <mat-label>Firstname</mat-label>
-      <input matInput ngValidator fieldName="$.firstName" formName="user_registration">
-    </mat-form-field>
+    <ng-input [formGroup]="registrationForm"
+              [matPrefixIcon]="'person'"
+              [controlName]="'lastName'"
+              [placeholder]="'Type your lastname'"
+              [matLabel]="'Last name'"
+              appearance="outline"
+              ngValidator
+              fieldName="$.lastName"
+              formName="user_registration">
+    </ng-input>
 
-    <mat-form-field>
-      <mat-label>Lastname</mat-label>
-      <input matInput ngValidator fieldName="$.lastName" formName="user_registration">
-    </mat-form-field>
+    <ng-input [formGroup]="registrationForm"
+              [matPrefixIcon]="'email'"
+              [controlName]="'email'"
+              [placeholder]="'Type your email'"
+              [matLabel]="'Email'"
+              [type]="'mail'"
+              appearance="outline"
+              ngValidator
+              fieldName="$.email"
+              formName="user_registration">
+    </ng-input>
 
-    <mat-form-field>
-      <mat-label>Password</mat-label>
-      <input type="password" matInput ngValidator fieldName="$.password" formName="user_registration">
-    </mat-form-field>
+    <ng-input [formGroup]="registrationForm"
+              [matPrefixIcon]="'vpn_key'"
+              [controlName]="'password'"
+              [placeholder]="'Type your password'"
+              [matLabel]="'Password'"
+              [type]="'password'"
+              appearance="outline"
+              ngValidator
+              fieldName="$.password"
+              formName="user_registration"
+              [isCustomValidationField]="true">
+    </ng-input>
 
-    <mat-form-field>
-      <mat-label>Confirmation password</mat-label>
-      <input type="password" matInput ngValidator fieldName="$.confirmationPassword" formName="user_registration">
-    </mat-form-field>
+
+    <ng-input [formGroup]="registrationForm"
+              [matPrefixIcon]="'vpn_key'"
+              [controlName]="'confirmationPassword'"
+              [matLabel]="'Re-type your password'"
+              [type]="'password'"
+              appearance="outline"
+              ngValidator
+              fieldName="$.confirmationPassword"
+              formName="user_registration">
+    </ng-input>
 
 
-    <div fxLayoutAlign="center center">
-      <button type="submit" mat-raised-button color="primary">Register</button>
-    </div>
+    <ng-button
+      [formGroup]="registrationForm"
+      [matButton]="'mat-raised-button'"
+      [text]="'Sign Up'"
+      color="primary"
+      [type]="'submit'"
+    >
+    </ng-button>
 
   </form>
 </div>

@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
     console.log('constructor initialized');
 
     this.registrationForm = this.formBuilder.group({
-      username: ['', Validators.minLength(4)],
+      username: [''],
       firstName: [''],
       lastName: [''],
       email: [''],
@@ -35,17 +35,16 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.registrationForm.valid) {
-      this.user = this.registrationForm.value;
-      this.user.formName = 'user_registration';
 
-      this.apiService.user.register(this.user)
-        .subscribe(data => {
-            this.router.navigate(['login']);
-          },
-          error => {
-            console.log(error);
-          });
-    }
+    this.user = this.registrationForm.value;
+    this.user.formName = 'user_registration';
+
+    this.apiService.user.register(this.user)
+      .subscribe(data => {
+          this.router.navigate(['login']);
+        },
+        error => {
+          console.log(error);
+        });
   }
 }
