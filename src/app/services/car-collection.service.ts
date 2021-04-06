@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
-import { CarDTO } from '../interfaces/CarDTO';
+import {Injectable} from '@angular/core';
+import {ReplaySubject} from 'rxjs/internal/ReplaySubject';
+import {CarDTO} from '../interfaces/CarDTO';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,8 @@ export class CarCollectionService {
 
   observer = this.car.asObservable();
 
-  constructor() {}
+  constructor() {
+  }
 
   updateCar(newCar: CarDTO) {
     this.car.next(newCar);
