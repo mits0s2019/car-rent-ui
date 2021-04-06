@@ -25,6 +25,7 @@
     "@angular/router": "~11.2.6",
     "@auth0/angular-jwt": "^5.0.2",
     "@intersalonica/ng-security": "^1.0.3",
+    "@intersalonica/ng-validator": "^1.2.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"

@@ -1,6 +1,6 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, Input, OnInit } from '@angular/core';
-import { Car } from '../interfaces/car';
+import { CarDTO } from '../interfaces/CarDTO';
 import { CarCollectionService } from '../services/car-collection.service';
 
 @Component({
@@ -9,14 +9,14 @@ import { CarCollectionService } from '../services/car-collection.service';
   styleUrls: ['./car.component.scss'],
 })
 export class CarComponent implements OnInit {
-  @Input() car: Car;
+  @Input() car: CarDTO;
 
   inCart: boolean = false;
 
   constructor(private carCollection: CarCollectionService) {}
 
   ngOnInit(): void {
-    console.log('hello from Car Component');
+    console.log('hello from CarDTO Component');
   }
 
   editCollection() {

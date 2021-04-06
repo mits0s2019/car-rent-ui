@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { error } from 'selenium-webdriver';
-import { User } from '../interfaces/user';
+import { UserDTO } from '../interfaces/UserDTO';
 import { ApiServiceService } from '../services/api-service.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ApiServiceService } from '../services/api-service.service';
 })
 export class UsersComponent implements OnInit {
 
-  users: User[];
+  users: UserDTO[];
   columnsToDisplay = ['num', 'username', 'firstName', 'lastName', 'email'];
 
 

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {User} from '../interfaces/user';
+import {UserDTO} from '../interfaces/UserDTO';
 import {ApiServiceService} from '../services/api-service.service';
 
 @Component({
@@ -12,7 +12,7 @@ import {ApiServiceService} from '../services/api-service.service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  user: User;
+  user: UserDTO;
 
   constructor(private formBuilder: FormBuilder,
               private apiService: ApiServiceService,
@@ -31,13 +31,13 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.user = this.loginForm.value;
 
-      this.apiService.user.logIn(this.user)
+      this.apiService.user.login(this.user)
         .subscribe(data => {
             this.router.navigate(['']);
           },
           error => {
             if (error.status === 403) {
-              // set errors
+              this.loginForm.setErrors({invalidCredentials: true});
             } else {
               console.log(error);
             }

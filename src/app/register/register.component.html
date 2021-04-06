@@ -2,88 +2,44 @@
 <div class="registrationForm" fxLayout="row wrap" fxLayoutAlign="center center">
   <h2 fxLayoutAlign="center center" fxFlex="100">Register</h2>
 
-  <form fxFlex="100" class="example-form" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+
+  <form fxFlex="50" fxLayout="column" fxLayoutAlign="space-around center" class="example-form" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     <!-- Username -->
-    <mat-form-field class="example-full-width">
+
+    <mat-form-field>
       <mat-label>Username</mat-label>
-      <input type="text" matInput formControlName="username" placeholder="Your username" />
-
-      <!-- errors -->
-      <mat-error *ngIf="
-          registrationForm.hasError('username') &&
-          !registrationForm.hasError('required')
-        ">
-        Please enter a valid username
-      </mat-error>
-      <mat-error *ngIf="registrationForm.hasError('required')"> Username is <strong>required</strong>
-      </mat-error>
+      <input matInput ngValidator fieldName="$.username" formName="user_registration">
     </mat-form-field>
 
-    <!-- first name -->
-    <mat-form-field class="example-full-width">
-      <mat-label>First Name</mat-label>
-      <input type="text" matInput formControlName="firstName" placeholder="Your first name" />
-
-      <!-- errors -->
-      <mat-error *ngIf="
-              registrationForm.hasError('firstName') &&
-              !registrationForm.hasError('required')
-            ">
-        Please enter a valid first Name
-      </mat-error>
-      <mat-error *ngIf="registrationForm.hasError('required')"> First name is <strong>required</strong>
-      </mat-error>
-    </mat-form-field>
-
-    <!-- last name -->
-    <mat-form-field class="example-full-width">
-      <mat-label>Last Name</mat-label>
-      <input type="text" matInput formControlName="lastName" placeholder="Your last name" />
-
-      <!-- errors -->
-      <mat-error *ngIf="
-                  registrationForm.hasError('lastName') &&
-                  !registrationForm.hasError('required')
-                ">
-        Please enter a valid Last Name
-      </mat-error>
-      <mat-error *ngIf="registrationForm.hasError('required')"> Last name is <strong>required</strong>
-      </mat-error>
-    </mat-form-field>
-
-    <!-- Email -->
-    <mat-form-field class="example-full-width">
+    <mat-form-field>
       <mat-label>Email</mat-label>
-      <input type="text" matInput formControlName="email" placeholder="Ex. email@email.com" />
-
-      <!-- errors -->
-      <mat-error *ngIf="
-          registrationForm.hasError('email') &&
-          !registrationForm.hasError('required')
-        ">
-        Please enter a valid email address
-      </mat-error>
-      <mat-error *ngIf="registrationForm.hasError('required')">
-        Email is <strong>required</strong>
-      </mat-error>
+      <input matInput ngValidator fieldName="$.email" formName="user_registration">
     </mat-form-field>
 
-    <!-- Password -->
-    <mat-form-field class="example-full-width">
+    <mat-form-field>
+      <mat-label>Firstname</mat-label>
+      <input matInput ngValidator fieldName="$.firstName" formName="user_registration">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Lastname</mat-label>
+      <input matInput ngValidator fieldName="$.lastName" formName="user_registration">
+    </mat-form-field>
+
+    <mat-form-field>
       <mat-label>Password</mat-label>
-      <input type="password" matInput formControlName="password" placeholder="Ex. I need help with..." />
-
-      <!-- errors -->
-      <mat-error *ngIf="
-          registrationForm.hasError('password') &&
-          !registrationForm.hasError('required')
-        ">
-        Please enter a valid email address
-      </mat-error>
-      <mat-error *ngIf="registrationForm.hasError('required')">
-        Password is <strong>required</strong>
-      </mat-error>
+      <input type="password" matInput ngValidator fieldName="$.password" formName="user_registration">
     </mat-form-field>
-    <button type="submit" mat-raised-button color="primary">Register</button>
+
+    <mat-form-field>
+      <mat-label>Confirmation password</mat-label>
+      <input type="password" matInput ngValidator fieldName="$.confirmationPassword" formName="user_registration">
+    </mat-form-field>
+
+
+    <div fxLayoutAlign="center center">
+      <button type="submit" mat-raised-button color="primary">Register</button>
+    </div>
+
   </form>
 </div>

@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {Registration} from '../interfaces/registration';
 import {ApiServiceService} from '../services/api-service.service';
-import {catchError} from 'rxjs/operators';
-import {throwError} from 'rxjs';
+import {UserDTO} from '../interfaces/UserDTO';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +11,7 @@ import {throwError} from 'rxjs';
 })
 export class RegisterComponent implements OnInit {
   registrationForm: FormGroup;
-  registerData: Registration;
+  user: UserDTO;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -23,11 +21,12 @@ export class RegisterComponent implements OnInit {
     console.log('constructor initialized');
 
     this.registrationForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      username: ['', Validators.minLength(4)],
+      firstName: [''],
+      lastName: [''],
+      email: [''],
+      password: [''],
+      confirmationPassword: [''],
     });
   }
 
@@ -37,14 +36,15 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     if (this.registrationForm.valid) {
-      this.registerData = this.registrationForm.value;
+      this.user = this.registrationForm.value;
+      this.user.formName = 'user_registration';
 
-      this.apiService.user.register(this.registerData)
+      this.apiService.user.register(this.user)
         .subscribe(data => {
-            this.router.navigate(['']);
+            this.router.navigate(['login']);
           },
           error => {
-              console.log(error);
+            console.log(error);
           });
     }
   }

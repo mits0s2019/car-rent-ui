@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { AddCarComponent } from './add-car/add-car.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {HomeComponent} from './home/home.component';
+import {LoginComponent} from './login/login.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {AuthorizedUserGuard} from '@intersalonica/ng-security';
 
 const routes: Routes = [
   {
@@ -26,6 +26,12 @@ const routes: Routes = [
   },
   {
     path: 'users',
+    canActivate: [AuthorizedUserGuard],
+    data: {
+      roles: ['ROLE_USER'],
+      unauthorizedRedirect: 'page-one',
+      forbiddenRedirect: 'page-three'
+    },
     loadChildren: () =>
       import('./users/users.module').then((m) => m.UsersModule),
   },
@@ -34,11 +40,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./add-car/add-car.module').then((m) => m.AddCarModule),
   },
-  { path: '**', component: PageNotFoundComponent },
+  {path: '**', component: PageNotFoundComponent},
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}

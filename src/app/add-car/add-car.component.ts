@@ -1,6 +1,6 @@
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { Car } from '../interfaces/car';
+import { CarDTO } from '../interfaces/CarDTO';
 import { Router } from '@angular/router';
 import { ApiServiceService } from '../services/api-service.service';
 
@@ -11,7 +11,7 @@ import { ApiServiceService } from '../services/api-service.service';
 })
 export class AddCarComponent implements OnInit {
   addCarForm: FormGroup;
-  car: Car;
+  car: CarDTO;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiServiceService) {
     console.log('constructor initialized');

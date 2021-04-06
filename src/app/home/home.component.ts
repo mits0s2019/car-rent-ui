@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { CarComponent } from '../car/car.component';
-import { Car } from '../interfaces/car';
+import { CarDTO } from '../interfaces/CarDTO';
 import { ApiServiceService } from '../services/api-service.service';
 
 @Component({
@@ -17,7 +17,7 @@ import { ApiServiceService } from '../services/api-service.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, AfterViewInit {
-  cars: Car[];
+  cars: CarDTO[];
 
   @ViewChildren(CarComponent) carElements: QueryList<CarComponent>;
 
@@ -28,9 +28,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
 
-    this.http.get<Car[]>("/assets/data/cars.json")
+    this.http.get<CarDTO[]>("/assets/data/cars.json")
     .subscribe(data=> this.cars = data)
-    
+
     // this.apiService.car.getCars()
     // .subscribe()
   }
@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       });
     });
   }
-  
+
   addCar(event) {
     this.router.navigate(['add-car']);
   }
