@@ -1,8 +1,8 @@
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
-import { CarDTO } from '../interfaces/CarDTO';
-import { Router } from '@angular/router';
-import { ApiServiceService } from '../services/api-service.service';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {CarDTO} from '../interfaces/CarDTO';
+import {Router} from '@angular/router';
+import {CarService} from '../services/car.service';
 
 @Component({
   selector: 'app-add-car',
@@ -13,7 +13,7 @@ export class AddCarComponent implements OnInit {
   addCarForm: FormGroup;
   car: CarDTO;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiServiceService) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private carService: CarService) {
     console.log('constructor initialized');
 
     this.addCarForm = this.formBuilder.group({
@@ -23,18 +23,17 @@ export class AddCarComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
-  onSubmit() {
-    if (this.addCarForm.valid) {
-      this.car = this.addCarForm.value;
+  onSubmit(): void {
+    this.car = this.addCarForm.value;
 
-      this.apiService.car.saveCar(this.car)
-        .subscribe(data => console.log("car saved"),
-          error => console.log(error));
+    this.carService.saveCar(this.car)
+      .subscribe(data => console.log('car saved'),
+        error => console.log(error));
 
-      this.addCarForm.reset();
-      this.router.navigate(['']);
-    }
+    this.addCarForm.reset();
+    this.router.navigate(['']);
   }
 }

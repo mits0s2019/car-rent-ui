@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {
   AfterViewInit,
   Component,
@@ -6,10 +6,9 @@ import {
   QueryList,
   ViewChildren,
 } from '@angular/core';
-import { Router } from '@angular/router';
-import { CarComponent } from '../car/car.component';
-import { CarDTO } from '../interfaces/CarDTO';
-import { ApiServiceService } from '../services/api-service.service';
+import {Router} from '@angular/router';
+import {CarComponent} from '../car/car.component';
+import {CarDTO} from '../interfaces/CarDTO';
 
 @Component({
   selector: 'app-home',
@@ -21,22 +20,22 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   @ViewChildren(CarComponent) carElements: QueryList<CarComponent>;
 
-  constructor(private apiService: ApiServiceService,private router: Router, private http: HttpClient) {
-    console.log("HomeComponent constructor initialized");
+  constructor(private router: Router, private http: HttpClient) {
+    console.log('HomeComponent constructor initialized');
 
   }
 
   ngOnInit(): void {
 
-    this.http.get<CarDTO[]>("/assets/data/cars.json")
-    .subscribe(data=> this.cars = data)
+    this.http.get<CarDTO[]>('/assets/data/cars.json')
+      .subscribe(data => this.cars = data);
 
     // this.apiService.car.getCars()
     // .subscribe()
   }
 
-  ngAfterViewInit() {
-    console.log("ngAfterViewInit initialized");
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit initialized');
     this.carElements.changes.subscribe(() => {
       // If clients is set from an async call ( getCars() ) then the elements don't exist in ngAfterViewInit() yet.
       this.carElements.toArray().forEach((carElement) => {
@@ -49,7 +48,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
   }
 
-  addCar(event) {
+  addCar(event): void {
     this.router.navigate(['add-car']);
   }
 }

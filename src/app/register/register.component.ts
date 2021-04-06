@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
-import {ApiServiceService} from '../services/api-service.service';
 import {UserDTO} from '../interfaces/UserDTO';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private apiService: ApiServiceService,
+    private authService: AuthService,
     private router: Router
   ) {
     console.log('constructor initialized');
@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
     this.user = this.registrationForm.value;
     this.user.formName = 'user_registration';
 
-    this.apiService.user.register(this.user)
+    this.authService.register(this.user)
       .subscribe(data => {
           this.router.navigate(['login']);
         },

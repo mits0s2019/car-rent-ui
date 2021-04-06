@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { error } from 'selenium-webdriver';
-import { UserDTO } from '../interfaces/UserDTO';
-import { ApiServiceService } from '../services/api-service.service';
+import {Component, OnInit} from '@angular/core';
+import {UserDTO} from '../interfaces/UserDTO';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-users',
@@ -14,12 +13,12 @@ export class UsersComponent implements OnInit {
   columnsToDisplay = ['num', 'username', 'firstName', 'lastName', 'email'];
 
 
-  constructor(private apiService: ApiServiceService) { }
+  constructor(private userService: UserService) {
+  }
 
   ngOnInit(): void {
-    this.apiService.user.getUsers()
+    this.userService.getUsers()
       .subscribe(data => this.users = data,
         err => console.log(err));
   }
-
 }

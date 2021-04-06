@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {UserDTO} from '../interfaces/UserDTO';
-import {ApiServiceService} from '../services/api-service.service';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   user: UserDTO;
 
   constructor(private formBuilder: FormBuilder,
-              private apiService: ApiServiceService,
+              private authService: AuthService,
               private router: Router) {
 
     this.loginForm = this.formBuilder.group({
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.user = this.loginForm.value;
 
-      this.apiService.user.login(this.user)
+      this.authService.login(this.user)
         .subscribe(data => {
             this.router.navigate(['']);
           },

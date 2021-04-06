@@ -9,7 +9,6 @@ import {FlexModule} from '@angular/flex-layout';
 import {NgValidatorModule} from '@intersalonica/ng-validator';
 import {NgInputModule} from '@intersalonica/ng-input';
 import {NgButtonModule} from '@intersalonica/ng-button';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -22,8 +21,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     FlexModule,
     NgInputModule,
     NgButtonModule,
-    // BrowserAnimationsModule,
-    NgValidatorModule.forRoot({url: 'http://localhost:8082/api/validation/field'}),
+    NgValidatorModule.forRoot({url: '/api/validation/field'}),
   ],
   providers: [
   ]
