@@ -1,0 +1,33 @@
+{
+  "id": "usersTableDefinition",
+  "pagingConfig": {
+    "pageSizeOptions": [
+      5,
+      7,
+      10,
+      20
+    ],
+    "pageIndex": 0,
+    "pageSize": 5
+  },
+  "columnDefinition": [
+    {
+      "columnName": "Username",
+      "objectPropertyName": "username",
+      "jsonPath": "$.username",
+      "type": "string"
+    },
+    {
+      "columnName": "Firstname",
+      "objectPropertyName": "firstName",
+      "jsonPath": "$.firstName",
+      "type": "string"
+    },
+    {
+      "columnName": "Lastname",
+      "objectPropertyName": "lastName",
+      "jsonPath": "$.lastName",
+      "type": "string"
+    }
+  ]
+}

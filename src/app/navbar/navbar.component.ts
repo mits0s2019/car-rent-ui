@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../services/auth.service';
 import {Router} from '@angular/router';
+import {NgSecurityService} from '@intersalonica/ng-security';
 
 
 @Component({
@@ -10,7 +11,8 @@ import {Router} from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public authService: AuthService,
+  constructor(private authService: AuthService,
+              public ngSecurityService: NgSecurityService,
               private router: Router) {
   }
 

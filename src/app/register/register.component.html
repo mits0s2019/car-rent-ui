@@ -1,9 +1,9 @@
 <router-outlet></router-outlet>
-<div  fxLayout="row wrap" fxLayoutAlign="center center">
+<div fxLayout="row wrap" fxLayoutAlign="center center">
   <h2 fxLayoutAlign="center center" fxFlex="100">Register</h2>
 
 
-  <form fxFlex="50" fxLayout="column" fxLayoutAlign="center center" class="example-form"
+  <form fxFlex="50" fxLayout="column" class="example-form"
         [formGroup]="registrationForm" (ngSubmit)="onSubmit()" autocomplete="off">
 
     <ng-input [formGroup]="registrationForm"
@@ -82,8 +82,7 @@
       [matButton]="'mat-raised-button'"
       [text]="'Sign Up'"
       color="primary"
-      [type]="'submit'"
-    >
+      [type]="'submit'">
     </ng-button>
 
   </form>

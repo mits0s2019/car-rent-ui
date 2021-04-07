@@ -19,6 +19,8 @@ import {NgSecurityModule} from '@intersalonica/ng-security';
 import {JwtHelperService, JwtModule, JWT_OPTIONS} from '@auth0/angular-jwt';
 import {NgValidatorModule} from '@intersalonica/ng-validator';
 import {NgDynamicTableModule} from '@intersalonica/ng-dynamic-table';
+import {NgButtonModule} from '@intersalonica/ng-button';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -48,6 +50,8 @@ import {NgDynamicTableModule} from '@intersalonica/ng-dynamic-table';
     JwtModule,
     NgValidatorModule.forRoot({url: '/api/validation/field'}),
     NgDynamicTableModule.forRoot({path: 'assets/columnDefinitionFolder'}),
+    NgButtonModule,
+    MatTooltipModule
   ],
   providers: [
     {

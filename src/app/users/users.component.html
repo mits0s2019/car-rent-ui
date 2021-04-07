@@ -1,43 +1,5 @@
-<h1>Users</h1>
+<div fxLayout="column" fxLayoutAlign="space-around center">
+  <h1>Users</h1>
 
-<div *ngIf="users?.length; else elseBlock">
-  <!-- Users table -->
-  <mat-table [dataSource]="users" class="mat-elevation-z8">
-    <!-- Number Column -->
-    <ng-container matColumnDef="num">
-      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-      <mat-cell *matCellDef="let element; let i = index">
-        {{ i + 1 }}
-      </mat-cell>
-    </ng-container>
-
-    <!-- Username Column -->
-    <ng-container matColumnDef="username">
-      <mat-header-cell *matHeaderCellDef> Username </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.username }} </mat-cell>
-    </ng-container>
-
-    <!--  First Column -->
-    <ng-container matColumnDef="firstName">
-      <mat-header-cell *matHeaderCellDef> Firstname </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.firstName }} </mat-cell>
-    </ng-container>
-
-    <!-- Last Column -->
-    <ng-container matColumnDef="lastName">
-      <mat-header-cell *matHeaderCellDef> Lastname </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.lastName }} </mat-cell>
-    </ng-container> 
-
-    <!-- Email Column -->
-    <ng-container matColumnDef="email">
-      <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.email }} </mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: columnsToDisplay"></mat-row>
-  </mat-table>
+  <ng-dynamic-table [dataSource]="users" [fileName]="usersTableDefinition" fxFlexFill></ng-dynamic-table>
 </div>
-
-<ng-template #elseBlock> No Users </ng-template>

@@ -1,9 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { UsersRoutingModule } from './users-routing.module';
-import { UsersComponent } from './users.component';
-import { MaterialModule } from '../material.module';
+import {UsersRoutingModule} from './users-routing.module';
+import {UsersComponent} from './users.component';
+import {MaterialModule} from '../material.module';
+import {NgDynamicTableModule} from '@intersalonica/ng-dynamic-table';
+import {HttpClientModule} from '@angular/common/http';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 
 @NgModule({
@@ -11,7 +14,11 @@ import { MaterialModule } from '../material.module';
   imports: [
     CommonModule,
     UsersRoutingModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule,
+    NgDynamicTableModule.forRoot({path: 'assets/columnDefinitionFolder'}),
+    FlexLayoutModule,
   ]
 })
-export class UsersModule { }
+export class UsersModule {
+}

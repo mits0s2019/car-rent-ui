@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="start center" >
+<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="start center">
   <a mat-button routerLink="/">Best Cars</a>
 
   <span fxFlex></span>
@@ -7,13 +7,13 @@
     <a mat-button routerLink="/users">Users</a>
   </ng-security>
 
-  <a mat-button routerLink="/register">Register</a>
-  <ng-container *ngIf="!authService.ngSecurityService.isAuthenticated(); else elseBlock">
+    <a mat-button routerLink="/register">Register</a>
+  <ng-container *ngIf="!ngSecurityService.isAuthenticated(); else elseBlock">
     <a mat-button routerLink="/login">Login</a>
   </ng-container>
 
   <ng-template #elseBlock>
-    <div style="font-size: 8px"> Welcome, {{authService.ngSecurityService.getUserDetails().username}}</div>
+    <div fxFlexAlign="end" style="font-size: 8px"> Welcome, {{ngSecurityService.getUserDetails().username}}</div>
     <button mat-button (click)="logout()">Logout</button>
   </ng-template>
 

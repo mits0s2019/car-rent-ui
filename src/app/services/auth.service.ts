@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {NgSecurityService} from '@intersalonica/ng-security';
 import {UserDTO} from '../interfaces/UserDTO';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
@@ -11,8 +10,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class AuthService {
 
-  constructor(public ngSecurityService: NgSecurityService,
-              private http: HttpClient) {
+  constructor(private http: HttpClient) {
   }
 
   login(user: UserDTO): Observable<UserDTO> {

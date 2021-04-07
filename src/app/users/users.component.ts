@@ -10,8 +10,7 @@ import {UserService} from '../services/user.service';
 export class UsersComponent implements OnInit {
 
   users: UserDTO[];
-  columnsToDisplay = ['num', 'username', 'firstName', 'lastName', 'email'];
-
+  usersTableDefinition = 'usersTableDefinition';
 
   constructor(private userService: UserService) {
   }
