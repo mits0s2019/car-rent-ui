@@ -13,7 +13,7 @@
   </ng-container>
 
   <ng-template #elseBlock>
-    <div fxFlexAlign="end" style="font-size: 8px"> Welcome, {{ngSecurityService.getUserDetails().username}}</div>
+    <div fxFlexAlign="end" style="font-size: 8px"> Welcome, {{ngSecurityService.getUserDetails()?.username}}</div>
     <button mat-button (click)="logout()">Logout</button>
   </ng-template>
 

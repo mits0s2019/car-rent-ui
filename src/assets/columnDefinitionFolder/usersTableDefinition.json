@@ -15,19 +15,22 @@
       "columnName": "Username",
       "objectPropertyName": "username",
       "jsonPath": "$.username",
-      "type": "string"
+      "type": "string",
+      "sort": true
     },
     {
       "columnName": "Firstname",
       "objectPropertyName": "firstName",
       "jsonPath": "$.firstName",
-      "type": "string"
+      "type": "string",
+      "sort": true
     },
     {
       "columnName": "Lastname",
       "objectPropertyName": "lastName",
       "jsonPath": "$.lastName",
-      "type": "string"
+      "type": "string",
+      "sort": true
     }
   ]
 }

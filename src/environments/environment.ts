@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  BASE_URL: '/api'
+  BASE_URL: '/api',
+  CAR_SHOP_TOKEN: 'CAR-SHOP-TOKEN'
 };
 
 /*

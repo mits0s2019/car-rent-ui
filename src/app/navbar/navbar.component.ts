@@ -21,9 +21,9 @@ export class NavbarComponent implements OnInit {
 
   logout(): void {
     this.authService.logout()
-      .subscribe(success => {
-          this.router.navigate(['']);
-        },
-        error => console.log('Something went wrong with the logout'));
+      .subscribe(() => {
+        this.ngSecurityService.setAuthorizationToken(null);
+        this.router.navigate(['']);
+      });
   }
 }

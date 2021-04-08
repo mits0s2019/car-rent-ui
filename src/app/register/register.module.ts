@@ -21,7 +21,7 @@ import {NgButtonModule} from '@intersalonica/ng-button';
     FlexModule,
     NgInputModule,
     NgButtonModule,
-    NgValidatorModule.forRoot({url: '/api/validation/field'}),
+    NgValidatorModule,
   ],
   providers: [
   ]

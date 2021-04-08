@@ -1,5 +1,12 @@
 <div fxLayout="column" fxLayoutAlign="space-around center">
   <h1>Users</h1>
 
-  <ng-dynamic-table [dataSource]="users" [fileName]="usersTableDefinition" fxFlexFill></ng-dynamic-table>
+  <ng-dynamic-table
+                    (handlePage)="getPagedData($event)"
+                    [serverSidePagination]="true"
+                    [dataSource]="users"
+                    [fileName]="'usersTableDefinition'"
+                    [page]="page">
+  </ng-dynamic-table>
+
 </div>

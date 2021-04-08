@@ -17,8 +17,8 @@ export class AuthService {
     return this.http.post<UserDTO>(`${environment.BASE_URL}/${Endpoints.LOGIN_URL}`, user);
   }
 
-  logout(): Observable<void> {
-    return this.http.get<void>(`${environment.BASE_URL}/${Endpoints.LOGOUT_URL}`);
+  logout(): Observable<any> {
+    return this.http.get(`${environment.BASE_URL}/${Endpoints.LOGOUT_URL}`);
   }
 
   register(user: UserDTO): Observable<void> {
