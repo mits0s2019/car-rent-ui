@@ -9,6 +9,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {NgLoaderModule} from '@intersalonica/ng-loader';
 import {NgRadioModule} from '@intersalonica/ng-radio';
+import {NgSuggestModule} from '@intersalonica/ng-suggest';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {NgRadioModule} from '@intersalonica/ng-radio';
     NgDynamicTableModule.forRoot({path: 'assets/columnDefinitionFolder'}),
     FlexLayoutModule,
     NgLoaderModule,
-    NgRadioModule
+    NgRadioModule,
+    NgSuggestModule,
   ]
 })
 export class UsersModule {

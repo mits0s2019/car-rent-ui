@@ -38,17 +38,40 @@
               formName="user_registration">
     </ng-input>
 
-    <ng-input [formGroup]="registrationForm"
-              [matPrefixIcon]="'email'"
-              [controlName]="'email'"
-              [placeholder]="'Type your email'"
-              [matLabel]="'Email'"
-              [type]="'mail'"
-              appearance="outline"
-              ngValidator
-              fieldName="$.email"
-              formName="user_registration">
-    </ng-input>
+    <div fxLayout="row" fxLayoutAlign="start end">
+
+      <ng-input [formGroup]="registrationForm"
+                [matPrefixIcon]="'email'"
+                [controlName]="'email'"
+                [placeholder]="'Type your email'"
+                [matLabel]="'Email'"
+                [type]="'mail'"
+                ngValidator
+                fieldName="$.email"
+                formName="user_registration">
+      </ng-input>
+
+      <div  fxFlexAlign="center" fxFlexOffset="5">
+        <span class="material-icons">alternate_email</span>
+      </div>
+
+      <div fxFlex fxFlexOffset="5">
+        <ng-suggest
+                    [controlName]="'emailDomain'"
+                    [dataSource]="emailDomains"
+                    [formGroup]="registrationForm"
+                    [label]="'Select email domain'"
+                    [queryText]="'$..k'"
+                    [queryValue]="'$..v'"
+                    [returnValueAs]="'string'"
+                    [sortType]="'asc'"
+                    [triggerOptions]="true"
+        >
+        </ng-suggest>
+      </div>
+
+
+    </div>
 
     <ng-select
       [appearance]="'outline'"

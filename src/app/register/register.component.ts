@@ -12,12 +12,17 @@ import {AuthService} from '../services/auth.service';
 export class RegisterComponent implements OnInit {
   registrationForm: FormGroup;
   user: UserDTO;
+  emailDomains = [
+    {k: 'gmail.com', v: 'gmail.com'},
+    {k: 'outlook.com', v: 'outlook.com'},
+    {k: 'yahoo.com', v: 'yahoo.com'}
+  ];
   ages: object[] = [
     {key: '< 14 years', value: 'child'},
     {key: '15-24 years', value: 'youth'},
     {key: '25-64 years', value: 'adult'},
     {key: '65 > years', value: 'senior'}
-    ];
+  ];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,6 +36,7 @@ export class RegisterComponent implements OnInit {
       firstName: [''],
       lastName: [''],
       email: [''],
+      emailDomain: [''],
       password: [''],
       confirmationPassword: [''],
       age: ['']
@@ -42,6 +48,11 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
+
+    const e = this.registrationForm.controls.email?.value;
+    const eDomain = this.registrationForm.controls.emailDomain?.value;
+
+    this.registrationForm.patchValue({email: this.buildEmail(e, eDomain)});
 
     this.user = this.registrationForm.value;
     console.log(this.user);
@@ -56,7 +67,7 @@ export class RegisterComponent implements OnInit {
         });
   }
 
-  // getItem(event) {
-  //
-  // }
+  buildEmail(email, emailDomain): string {
+    return `${email}@${emailDomain}`;
+  }
 }

@@ -10,6 +10,7 @@ import {NgValidatorModule} from '@intersalonica/ng-validator';
 import {NgInputModule} from '@intersalonica/ng-input';
 import {NgButtonModule} from '@intersalonica/ng-button';
 import {NgSelectModule} from '@intersalonica/ng-select';
+import {NgSuggestModule} from '@intersalonica/ng-suggest';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {NgSelectModule} from '@intersalonica/ng-select';
     NgInputModule,
     NgButtonModule,
     NgValidatorModule,
-    NgSelectModule
+    NgSelectModule,
+    NgSuggestModule
   ],
   providers: [
   ]
