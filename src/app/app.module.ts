@@ -25,6 +25,7 @@ import {NgSelectModule} from '@intersalonica/ng-select';
 import {NgLoaderModule} from '@intersalonica/ng-loader';
 import {NgRadioModule} from '@intersalonica/ng-radio';
 import { NgSuggestModule } from '@intersalonica/ng-suggest';
+import {NgTopicModule} from '@intersalonica/ng-topic';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { NgSuggestModule } from '@intersalonica/ng-suggest';
     NgLoaderModule,
     NgRadioModule,
     NgSuggestModule,
+    NgTopicModule,
   ],
   providers: [
     {

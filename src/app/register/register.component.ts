@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
   registrationForm: FormGroup;
   user: UserDTO;
   emailDomains = [
-    {k: 'gmail.com', v: 'gmail.com'},
+    {k: 'gmail.com', v: 'gmail.com'}, // TODO can we have a string array ?
     {k: 'outlook.com', v: 'outlook.com'},
     {k: 'yahoo.com', v: 'yahoo.com'}
   ];

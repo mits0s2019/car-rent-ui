@@ -10,6 +10,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {NgLoaderModule} from '@intersalonica/ng-loader';
 import {NgRadioModule} from '@intersalonica/ng-radio';
 import {NgSuggestModule} from '@intersalonica/ng-suggest';
+import {NgInputModule} from '@intersalonica/ng-input';
+import {NgButtonModule} from '@intersalonica/ng-button';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import {NgSuggestModule} from '@intersalonica/ng-suggest';
     NgLoaderModule,
     NgRadioModule,
     NgSuggestModule,
+    NgInputModule,
+    NgButtonModule,
   ]
 })
 export class UsersModule {

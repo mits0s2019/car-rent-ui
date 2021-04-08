@@ -6,7 +6,7 @@
 
 <div fxLayout="column" fxLayoutAlign="space-around start">
 
-  <div class="xy">
+  <div class="xy ml-20" fxLayout="row" fxLayoutAlign=" end">
     <ng-radio
       (getValue)="getRadioValue($event)"
       [dataSource]="radioProps"
@@ -16,6 +16,26 @@
       [returnValueAs]="'string'"
     >
     </ng-radio>
+
+    <ng-container *ngIf="filterPlaceholder">
+
+      <ng-input fxFlexOffset="5"
+        (getValue)="getFilterValue($event)"
+        [placeholder]="filterPlaceholder"
+        [type]="'text'"
+        [required]="false"
+        [width]="'250px'">
+      </ng-input>
+
+      <ng-button fxFlexAlign="center"
+        (click)="onFilterClick()"
+        [color]="'primary'"
+        [matButton]="'mat-fab'"
+        [matIcon]="'search'"
+        [width]="'50%'">
+      </ng-button>
+    </ng-container>
+
 
   </div>
 
