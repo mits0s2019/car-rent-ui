@@ -9,6 +9,7 @@ import {FlexModule} from '@angular/flex-layout';
 import {NgValidatorModule} from '@intersalonica/ng-validator';
 import {NgInputModule} from '@intersalonica/ng-input';
 import {NgButtonModule} from '@intersalonica/ng-button';
+import {NgSelectModule} from '@intersalonica/ng-select';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import {NgButtonModule} from '@intersalonica/ng-button';
     NgInputModule,
     NgButtonModule,
     NgValidatorModule,
+    NgSelectModule
   ],
   providers: [
   ]

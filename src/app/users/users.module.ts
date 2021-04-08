@@ -7,6 +7,7 @@ import {MaterialModule} from '../material.module';
 import {NgDynamicTableModule} from '@intersalonica/ng-dynamic-table';
 import {HttpClientModule} from '@angular/common/http';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {NgLoaderModule} from '@intersalonica/ng-loader';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     HttpClientModule,
     NgDynamicTableModule.forRoot({path: 'assets/columnDefinitionFolder'}),
     FlexLayoutModule,
+    NgLoaderModule
   ]
 })
 export class UsersModule {

@@ -21,6 +21,8 @@ import {NgValidatorModule} from '@intersalonica/ng-validator';
 import {NgDynamicTableModule} from '@intersalonica/ng-dynamic-table';
 import {NgButtonModule} from '@intersalonica/ng-button';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {NgSelectModule} from '@intersalonica/ng-select';
+import {NgLoaderModule} from '@intersalonica/ng-loader';
 
 
 @NgModule({
@@ -51,7 +53,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     NgValidatorModule.forRoot({url: '/api/validation/field'}),
     NgDynamicTableModule.forRoot({path: 'assets/columnDefinitionFolder'}),
     NgButtonModule,
-    MatTooltipModule
+    MatTooltipModule,
+    NgSelectModule,
+    NgLoaderModule
   ],
   providers: [
     {

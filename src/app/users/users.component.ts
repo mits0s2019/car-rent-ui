@@ -10,6 +10,7 @@ import {Page, Pageable} from '@intersalonica/ng-dynamic-table/lib/pagination';
 })
 export class UsersComponent implements OnInit {
 
+  showLoader;
   users: UserDTO[];
   page: Page<UserDTO>;
 
@@ -17,7 +18,6 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.getPagedData({
       pageSize: 5,
       pageIndex: 0,
@@ -25,7 +25,6 @@ export class UsersComponent implements OnInit {
 
   }
 
-  //this method gets called After running ngOnInit method or when user performs one of the following actions: Change page size, Go to next or previous table's page
   getPagedData(event: Pageable): any {
 
     const pageable: Pageable = {
@@ -36,15 +35,18 @@ export class UsersComponent implements OnInit {
       ]
     };
 
-    // const filteredValues: Map<string, any> = new Map<string, any>();
-    //
-    // filteredValues.set('firstname', 'jim');
-    // pageable.filter = filteredValues;
+    this.showLoader = true;
 
-    this.userService.getPageableUsers(pageable).subscribe(res => {
-      this.users = res.content;
-      this.page = res;
-    });
+    setTimeout(() => { // this is in order to demonstrate the ng-loader functionality
+
+      this.userService.getPageableUsers(pageable).subscribe(res => {
+        this.users = res.content;
+        this.page = res;
+      }).add(() => {
+        this.showLoader = false;
+      });
+
+    }, 1000);
   }
 
 }

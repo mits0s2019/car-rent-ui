@@ -1,6 +1,6 @@
 import {BaseDTO} from './BaseDTO';
 
-export interface UserDTO extends BaseDTO{
+export interface UserDTO extends BaseDTO {
   id?: number;
   username: string;
   password?: string;
@@ -8,6 +8,7 @@ export interface UserDTO extends BaseDTO{
   email?: string;
   firstName: string;
   lastName: string;
+  age: string;
   roles?: string[];
   privileges?: string[];
 }

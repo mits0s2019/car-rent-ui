@@ -12,6 +12,12 @@ import {AuthService} from '../services/auth.service';
 export class RegisterComponent implements OnInit {
   registrationForm: FormGroup;
   user: UserDTO;
+  ages: object[] = [
+    {key: '< 14 years', value: 'child'},
+    {key: '15-24 years', value: 'youth'},
+    {key: '25-64 years', value: 'adult'},
+    {key: '65 > years', value: 'senior'}
+    ];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,6 +33,7 @@ export class RegisterComponent implements OnInit {
       email: [''],
       password: [''],
       confirmationPassword: [''],
+      age: ['']
     });
   }
 
@@ -37,6 +44,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
 
     this.user = this.registrationForm.value;
+    console.log(this.user);
     this.user.formName = 'user_registration';
 
     this.authService.register(this.user)
@@ -47,4 +55,8 @@ export class RegisterComponent implements OnInit {
           console.log(error);
         });
   }
+
+  // getItem(event) {
+  //
+  // }
 }

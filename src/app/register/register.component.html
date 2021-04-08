@@ -50,6 +50,19 @@
               formName="user_registration">
     </ng-input>
 
+    <ng-select
+      [appearance]="'outline'"
+      [formGroup]="registrationForm"
+      [controlName]="'age'"
+      [data]="ages"
+      [queryGroup]="'$..value'"
+      [queryText]="'$..key'"
+      [queryValue]="'$..value'"
+      [label]="'Select your age'"
+    >
+    </ng-select>
+
+
     <ng-input [formGroup]="registrationForm"
               [matPrefixIcon]="'vpn_key'"
               [controlName]="'password'"
@@ -74,6 +87,15 @@
               fieldName="$.confirmationPassword"
               formName="user_registration">
     </ng-input>
+
+
+    <ng-button
+      [formGroup]="registrationForm"
+      [matButton]="'mat-raised-button'"
+      [text]="'Sign Up'"
+      color="primary"
+      [type]="'submit'">
+    </ng-button>
 
   </form>
 </div>
