@@ -28,6 +28,7 @@
     "@intersalonica/ng-dynamic-table": "^2.0.4",
     "@intersalonica/ng-input": "^1.0.3",
     "@intersalonica/ng-loader": "^1.0.1",
+    "@intersalonica/ng-radio": "^1.0.1",
     "@intersalonica/ng-security": "^1.0.3",
     "@intersalonica/ng-select": "^2.0.3",
     "@intersalonica/ng-suggest": "^2.0.2",

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {UserDTO} from '../interfaces/UserDTO';
 import {UserService} from '../services/user.service';
 import {Page, Pageable} from '@intersalonica/ng-dynamic-table/lib/pagination';
@@ -6,13 +6,19 @@ import {Page, Pageable} from '@intersalonica/ng-dynamic-table/lib/pagination';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss']
+  styleUrls: ['./users.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class UsersComponent implements OnInit {
 
   showLoader;
   users: UserDTO[];
   page: Page<UserDTO>;
+  radioProps = [
+    {value: 'username'},
+    {value: 'firstname'},
+    {value: 'lastname'},
+  ];
 
   constructor(private userService: UserService) {
   }
@@ -49,5 +55,9 @@ export class UsersComponent implements OnInit {
     }, 1000);
   }
 
+  getRadioValue(value): string {
+    console.log(value);
+    return value;
+  }
 }
 

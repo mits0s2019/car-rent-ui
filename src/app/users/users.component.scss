@@ -1,0 +1,15 @@
+ng-radio .mat-radio-group {
+  display: flex;
+  margin: 5px;
+}
+
+.xy ng-radio .mat-radio-group {
+  flex-direction: row;
+}
+
+
+ng-radio mat-label {
+  margin: 10px;
+  font-size: 12px;
+  color: blue;
+}

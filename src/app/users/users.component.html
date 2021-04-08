@@ -2,6 +2,23 @@
 
 <div fxLayout="column" fxLayoutAlign="space-around center">
   <h1>Users</h1>
+</div>
+
+<div fxLayout="column" fxLayoutAlign="space-around start">
+
+  <div class="xy">
+    <ng-radio
+      (getValue)="getRadioValue($event)"
+      [dataSource]="radioProps"
+      [label]="'Filter By '"
+      [queryText]="'$..value'"
+      [queryValue]="'$..value'"
+      [returnValueAs]="'string'"
+    >
+    </ng-radio>
+
+  </div>
+
 
   <ng-dynamic-table fxFlexFill
                     (handlePage)="getPagedData($event)"

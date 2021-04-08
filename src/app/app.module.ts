@@ -23,6 +23,7 @@ import {NgButtonModule} from '@intersalonica/ng-button';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {NgSelectModule} from '@intersalonica/ng-select';
 import {NgLoaderModule} from '@intersalonica/ng-loader';
+import {NgRadioModule} from '@intersalonica/ng-radio';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import {NgLoaderModule} from '@intersalonica/ng-loader';
     NgButtonModule,
     MatTooltipModule,
     NgSelectModule,
-    NgLoaderModule
+    NgLoaderModule,
+    NgRadioModule
   ],
   providers: [
     {
