@@ -5,19 +5,19 @@
       <mat-card-subtitle>{{ car?.price | number: "1.0-0" }} &euro;</mat-card-subtitle>
     </mat-card-header>
     <img  mat-card-lg-image [src]="car?.url" alt="Photo of a car">
-    
+
     <mat-card-actions>
       <button mat-button
       *ngIf="!inCart; else elseBlock"
       mat-raised-button
       color="primary"
-      (click)="editCollection()"
+      (click)="send()"
     >
       Rent
     </button>
 
     <ng-template #elseBlock
-      ><button mat-button mat-raised-button color="accent" (click)="editCollection()">
+      ><button mat-button mat-raised-button color="accent" (click)="send()">
         <span class="material-icons"> N/A </span>
       </button>
     </ng-template>

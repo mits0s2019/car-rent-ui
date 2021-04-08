@@ -1,13 +1,13 @@
 <div class="container" fxLayoutAlign="center center">
   <ng-template [ngIf]="cars.length > 0">
     <mat-table [dataSource]="cars" class="mat-elevation-z8" fxFlex>
-      <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef> Brand </mat-header-cell>
-        <mat-cell *matCellDef="let car"> {{ car.name }} </mat-cell>
+      <ng-container matColumnDef="brand">
+        <mat-header-cell *matHeaderCellDef> Brand</mat-header-cell>
+        <mat-cell *matCellDef="let car"> {{ car.brand }} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="price">
-        <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef> Price</mat-header-cell>
         <mat-cell *matCellDef="let car">
           {{ car.price | number: "1.0-0" }}
         </mat-cell>

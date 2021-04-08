@@ -40,9 +40,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
       // If clients is set from an async call ( getCars() ) then the elements don't exist in ngAfterViewInit() yet.
       this.carElements.toArray().forEach((carElement) => {
         setInterval(() => {
-          carElement.inCart
-            ? carElement.car.price
-            : (carElement.car.price = Math.random() * 100000 + 10000);
+          if (!carElement.inCart) {
+            carElement.car.price = Math.random() * 100000 + 10000;
+          }
         }, 1000);
       });
     });
